@@ -1,0 +1,30 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    [mode] = "isScreenBig() ? 'side' : 'over'"
+    [fixedInViewport] = true
+    [fixedTopGap] = "64"
+    mode = "push"
+    [opened] = "shouldSideNavBeOpen()"
+    #sidenav
+  >
+    <mat-nav-list>
+      <a mat-list-item routerLink="home" routerlinkactive="item-selected" href="/home">
+        <mat-icon class="material-icons">help</mat-icon>Home
+      </a>
+      <a mat-list-item routerLink="profile" routerlinkactive="item-selected" href="/profile">
+        <mat-icon class="material-icons">account_circle</mat-icon>Profile
+      </a>
+      <a mat-list-item routerLink="table" routerlinkactive="item-selected" href="/table">
+        <mat-icon class="material-icons">view_column</mat-icon>Table
+      </a>
+      <a mat-list-item routerLink="charts" routerlinkactive="item-selected" href="/charts">
+        <mat-icon class="material-icons">insert_chart</mat-icon>Charts
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

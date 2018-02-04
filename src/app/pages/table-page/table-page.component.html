@@ -1,0 +1,93 @@
+<div class="primary-header">
+  <h1>Sales Information</h1>
+</div>
+
+<div class="page-content">
+  <p> Form is just for show. Demo backend just returns the same thing no matter what you put in here. </p>
+  <form [formGroup]="searchForm" (ngSubmit)="searchForm.valid && search()" novalidate>
+    <app-date-selector [parentForm]="searchForm" (onDateRangeChanged)="setDateRange($event)"></app-date-selector>
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-evenly" fxLayoutGap="1vw">
+      <div fxFlex class="selector-div">
+        <mat-form-field hintLabel="Optional">
+          <mat-select placeholder="Location" formControlName="location">
+            <mat-option *ngFor="let location of locations" [value]="location.value">
+              {{location.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxFlex>
+        <div fxLayout="row" class="centred-button-container">
+          <button fxFlex="30" mat-raised-button color="accent" type="submit" class="centred-button" [disabled]="!searchForm.valid" > Search </button>
+          <button fxFlex="60" mat-raised-button type="button" class="centred-button" (click)="csvButtonClicked()" [disabled]="!searchResultsFound" > Export CSV</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <br/>
+
+  <div *ngIf="searching" class="spinner-container">
+    <h3>Loading...</h3>
+    <mat-spinner color="accent" [diameter]="120" [strokeWidth]="12"></mat-spinner>
+  </div>
+
+  <div class="mat-elevation-z8 table-div">
+    <mat-table #table [dataSource]="dataSource" matSort>
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell class="checkbox-in-a-cell" *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="isMasterToggleChecked()"
+                        [indeterminate]="isMasterToggleIndeterminate()">
+          </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell class="checkbox-in-a-cell" *matCellDef="let element">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(element) : null"
+                        [checked]="selection.isSelected(element)">
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Date  </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div *ngIf="element.date">
+            {{element.date}}
+          </div>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="salesPerson">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Sales Person  </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div *ngIf="element.salesPerson">
+            {{element.salesPerson}}
+          </div>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="amount">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div *ngIf="element.amount">
+            {{element.amount | number : '1.2-2'}}
+          </div>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="location">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Location </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div *ngIf="element.location">
+            {{element.location}}
+          </div>
+        </mat-cell>
+      </ng-container>
+    </mat-table>
+  </div>
+
+  <div *ngIf="!searchResultsFound">
+    <h3 class="empty-message"> No results found.</h3>
+  </div>
+</div>

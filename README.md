@@ -1,5 +1,30 @@
 # Angular2Seed
 
+Seed project for creating full featured Angular 2 Applications
+
+Features:
+Material Design and Theming - Angular Material
+Responsive Design - Flex Layout
+Routing- Angular Router
+Flux State Store - NGRX
+File Upload - ng2-file-upload
+REST Calls - ngx-resource
+Toast Messages - ng2-toastr
+Observables - RXJS
+Unit Tests - Karma/Jasmine
+Data charts - ngx-charts
+Nested Forms - Angular Reactive Forms
+Table with Sorting - Mat Table
+Toolbar and Sidenav
+User profile page
+Authentication and AuthGuard
+Export CSV File Functionality
+
+Run locally by Angular-Cli:
+npm start 
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 
 ## Development server

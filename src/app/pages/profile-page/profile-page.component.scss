@@ -1,0 +1,27 @@
+$picture-diameter:  12vw;
+
+.profile-card {
+  margin-top: 2vh;
+}
+
+.profile-card-head {
+  width: 100%;
+  padding-bottom: $picture-diameter/1.5;
+  box-sizing: border-box;
+}
+
+.logo-pic {
+  // border-radius: 50%;
+  max-width: $picture-diameter;
+  max-height: $picture-diameter;
+}
+
+.logo-pic-container {
+  width: $picture-diameter;
+  height: $picture-diameter;
+}
+
+.on-seam {
+  position: relative;
+  bottom: $picture-diameter/2;
+}

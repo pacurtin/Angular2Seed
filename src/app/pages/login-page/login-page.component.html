@@ -1,0 +1,51 @@
+<div class="primary-header">
+  <h1>Account Login</h1>
+</div>
+
+<p class="centered">
+  Just click login with anything in for username and password. This just a demo. The backend doesn't have auth implemented.
+</p>
+
+<div fxLayout ="row">
+  <div fxFlex="spacer"></div>
+
+  <div fxLayout ="column" fxLayoutAlign="space-evenly center" fxLayoutGap="2vh" class="login-card">
+
+    <div fxFlex="20" class="login-card-head">
+      <h2>Login</h2>
+    </div>
+
+    <div fxFlex="80"class="login-card-body" fxLayout ="column" fxLayoutAlign="space-evenly center" fxLayoutGap="1vh">
+
+      <form name="loginForm" class="login-form" [formGroup]="loginForm" (ngSubmit)="loginForm.valid && login()" novalidate>
+        <mat-form-field>
+          <input matInput placeholder="Username" formControlName="userName" required>
+          <mat-error >You must enter your username</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password" required>
+          <mat-error>You must enter your password</mat-error>
+        </mat-form-field>
+        <div class="button-div" fxLayout="row" fxLayoutAlign="space-evenly center">
+          <button mat-raised-button color="primary" type="submit" [disabled]="loading" >Login</button>
+        </div>
+        <div class="spinner-container">
+          <mat-spinner [diameter]="30" [strokeWidth]="5" *ngIf="loading"></mat-spinner>
+        </div>
+      </form>
+
+      <mat-checkbox ngDefaultControl [(ngModel)]="keepLoggedIn">Keep me logged in</mat-checkbox>
+
+      <div class="other-options">
+        <a>Sign up</a>
+        &middot;
+        <a class="option" (click)="openForgotPasswordModal()">Forgot password?</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div fxFlex="spacer"></div>
+
+</div>
+

@@ -1,0 +1,23 @@
+// overwrites a weird thing that pushes them out of allignment
+mat-form-field {
+  display: block;
+}
+
+// Bug fix for mat-checkbox inside a mat-cell
+// https://github.com/angular/material2/issues/8600
+.checkbox-in-a-cell{
+  overflow: visible;
+}
+
+mat-header-cell{
+  font-weight: bold;
+}
+
+mat-cell{
+  padding-right: 1vw;
+}
+
+// material automatically creates a unique class for each column
+// .mat-column-voucherNumber {
+// flex: 0 0 100px;
+// }

@@ -1,0 +1,41 @@
+/* Trying to mimic material.angular.io/src/app/shared/navbar/navbar.scss */
+
+.icon {
+  padding: 0 14px;
+}
+
+.toolbar-left {
+  text-align: left;
+}
+
+.toolbar-center {
+  text-align: center;
+}
+
+.toolbar-right {
+  text-align: right;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 16px 0 0;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  min-height:64px;
+  max-height:64px;
+}
+
+a.logoLink{
+  color: white; text-decoration: none;
+}
+
+.profile-pic {
+  max-height: 32px;
+}
+
+
+
+

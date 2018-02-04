@@ -1,0 +1,21 @@
+<div class="contact-modal">
+  <div fxLayout="column"
+       fxLayoutAlign="space-evenly center"
+       fxLayoutGap="2vh">
+    <div class="modal-header">
+      <h1>Support</h1>
+    </div>
+    <div class="modal-content-div">
+      <p>
+        If you require assistance or wish to learn more about the services we offer, please email us at the address below:
+      </p>
+    </div>
+    <div class = "modal-email-div">
+      <p><mat-icon class="material-icons">mail</mat-icon> support@gmail.com</p>
+    </div>
+    <div class="modal-actions-div">
+      <button mat-button (click)="openEmailClient()">EMAIL</button>
+      <button mat-button (click)="closeModal()">CLOSE</button>
+    </div>
+  </div>
+</div>

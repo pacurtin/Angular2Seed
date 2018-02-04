@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayout="row">
+    <div fxFlex="40" class="toolbar-left">
+      <button *ngIf="showMenuButton" mat-button class="sidenav-toggle" (click)="toggleSideNav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div fxFlex class="toolbar-center">
+        <a class="logoLink" [routerLink]="['/']">Angular2Seed</a>
+    </div>
+    <div fxFlex="40" class="toolbar-right">
+      <button mat-button (click)="openContactUsModal()">Contact</button>
+      <button *ngIf="showMenuButton" mat-button [routerLink]="['/login']">Logout</button>
+      <button *ngIf="showMenuButton" mat-button [routerLink]="['/profile']">
+        <img class="profile-pic" [src]="logo$ | async">
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

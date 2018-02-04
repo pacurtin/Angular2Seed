@@ -1,0 +1,14 @@
+<div style="width: 100%; height: 400px;">
+  <ngx-charts-line-chart
+    *ngIf="data"
+    #lineChart
+    [results]="data"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xLabel"
+    [yAxisLabel]="yLabel">
+  </ngx-charts-line-chart>
+</div>

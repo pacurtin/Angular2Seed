@@ -1,0 +1,29 @@
+/* Anything color related goes here*/
+
+@mixin login-page-theme($custom-theme) {
+
+  $primary: map-get($custom-theme, primary);
+  $accent: map-get($custom-theme, accent);
+  $background: map-get($custom-theme, background);
+  $foreground: map-get($custom-theme, foreground);
+
+  .login-card-head {
+    box-shadow: 0 2px 5px 0 mat-color($foreground, divider);
+    background: mat-color($primary);
+    color: mat-contrast($primary, 500);
+  }
+
+  .login-card {
+    border: 1px solid mat-color($foreground, divider);
+    box-shadow: 0 0px 5px 0 mat-color($foreground, divider);
+  }
+
+  a {
+    color: rgba(0,0,0,.60);
+  }
+
+  .other-options {
+    color: rgba(0,0,0,.60);
+  }
+
+}

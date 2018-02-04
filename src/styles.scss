@@ -1,1 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
+@import "theme";
+
+body {
+  font-family: Roboto, sans-serif;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.spinner-container {
+  text-align: center;
+  margin: 1vw;
+
+  .mat-progress-spinner svg{
+    position: relative;
+  }
+
+  mat-spinner {
+    margin:0 auto;
+  }
+}
+
+.primary-header {
+  z-index: 9;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  padding-left: 20px;
+
+
+  h1 {
+    display: inline-block;
+    font-weight: 300;
+    margin: 0;
+    padding: 28px 8px;
+    font-size: 20px;
+  }
+}
+
+.page-content{
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2vh 6vw;
+}
+
+.material-icons {
+  margin-right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+#toast-container{
+  margin-top: 64px;
+  z-index: 999;
+}
+
+.toast-success {
+  background-color: mat-color($primary, darker);
+}
+
+.toast-error {
+  background-color: mat-color($warn);
+}
+
+hr {
+  margin-bottom: 3vh;
+  border-bottom-color: rgba(0,0,0,.20);
+  border-width: 1px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+}

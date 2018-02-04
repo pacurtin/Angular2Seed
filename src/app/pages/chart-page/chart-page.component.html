@@ -1,0 +1,36 @@
+<div class="primary-header">
+  <h1>Charts</h1>
+</div>
+
+<div class="page-content">
+  <div *ngIf="chartsLoaded; else loading">
+    <div fxLayout="row" fxLayout.lt-md="column">
+      <div fxFlex="50" class="chart-with-title">
+        <h2>Total Sales per Day</h2>
+        <div>
+          <app-line-chart [data]="salesLineChartDataDay" [xLabel]="salesLineChartXLabelDay" [yLabel]="salesLineChartYLabelDay"></app-line-chart>
+        </div>
+      </div>
+      <div fxFlex="50" class="chart-with-title">
+        <h2>Sales per Location</h2>
+        <div>
+          <app-bar-chart [data]="salesBarChartData" [xLabel]="salesBarChartXLabel" [yLabel]="salesBarChartYLabel"></app-bar-chart>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayout.lt-md="column">
+      <div fxFlex="50" class="chart-with-title">
+        <h2>Sales per Person</h2>
+        <div>
+          <app-pie-chart [data]="salesPersonData"></app-pie-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <div class="spinner-container">
+      <h3>Loading...</h3>
+      <mat-spinner color="accent" [diameter]="120" [strokeWidth]="12"></mat-spinner>
+    </div>
+  </ng-template>
+</div>

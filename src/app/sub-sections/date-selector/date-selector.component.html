@@ -1,0 +1,29 @@
+<div [formGroup]="datePickerGroup">
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-evenly" fxLayoutGap="1vw">
+    <div fxFlex class="selector-div">
+      <mat-form-field hintLabel="Select a preset date range">
+        <mat-select placeholder="Date range" formControlName="dateRange" (change)="setDateRange(datePickerGroup.get('dateRange').value)">
+          <mat-option *ngFor="let rangeChoice of rangeChoices" [value]="rangeChoice.value" >
+            {{rangeChoice.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxFlex class="datepicker-div">
+      <mat-form-field hintLabel="Click the calender icon to choose a date manually (MM/DD/YYYY)">
+        <input matInput [matDatepicker]="startDatePicker" placeholder="Choose start date" formControlName="startDate" (ngModelChange)="emitDateRange()" required>
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #startDatePicker></mat-datepicker>
+        <mat-error>You must enter a start date</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxFlex class="datepicker-div">
+      <mat-form-field hintLabel="Click the calender icon to choose a date manually (MM/DD/YYYY)">
+        <input matInput [matDatepicker]="endDatePicker" placeholder="Choose end date" formControlName="endDate" (ngModelChange)="emitDateRange()" required>
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #endDatePicker></mat-datepicker>
+        <mat-error>You must enter a start date</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

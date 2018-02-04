@@ -1,0 +1,83 @@
+/*
+  VERY useful link for this stuff:
+  https://blog.thoughtram.io/angular/2017/05/23/custom-themes-with-angular-material.html
+  */
+
+@import '~@angular/material/theming';
+@import 'app/pages/login-page/login-page-theme.scss';
+@import 'app/pages/profile-page/profile-page-theme.scss';
+
+@include mat-core();
+
+$custom-accent: (
+  50: #0d98ba,
+  100: #0d98ba,
+  200: #0d98ba,
+  300: #0d98ba,
+  400: #0d98ba,
+  500: #0d98ba,
+  600: #0d98ba,
+  700: #0d98ba,
+  800: #0d98ba,
+  900: #0d98ba,
+  A100: #0d98ba,
+  A200: #0d98ba,
+  A400: #0d98ba,
+  A700: #0d98ba,
+  contrast: (
+    50: $white-87-opacity,
+    100: $white-87-opacity,
+    200: $white-87-opacity,
+    300: $white-87-opacity,
+    400: $white-87-opacity,
+    500: $white-87-opacity,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $white-87-opacity,
+    A200: $white-87-opacity,
+    A400: $white-87-opacity,
+    A700: $white-87-opacity,
+  )
+);
+
+$primary: mat-palette($mat-red, 500 ,300, 700);
+// $primary: mat-palette($mat-pink, 500 ,300, 700);
+// $primary: mat-palette($mat-purple, 500 ,300, 700);
+// $primary: mat-palette($mat-deep-purple, 500 ,300, 700);
+// $primary: mat-palette($mat-indigo, 500 ,300, 700);
+// $primary: mat-palette($mat-blue, 800 ,300, 700);
+// $primary: mat-palette($mat-light-blue, 800 ,300, 700);
+// $primary: mat-palette($mat-cyan, 500 ,300, 700);
+// $primary: mat-palette($mat-teal, 500 ,300, 700);
+// $primary: mat-palette($mat-green, 500 ,300, 700);
+// $primary: mat-palette($mat-light-green, 500 ,300, 700);
+// $primary: mat-palette($mat-lime, 500 ,300, 700);
+// $primary: mat-palette($mat-yellow, 500 ,300, 700);
+// $primary: mat-palette($mat-amber, 500 ,300, 700);
+// $primary: mat-palette($mat-orange, 500 ,300, 700);
+// $primary: mat-palette($mat-deep-orange, 500 ,300, 700);
+// $primary: mat-palette($mat-brown, 500 ,300, 700);
+// $primary: mat-palette($mat-grey, 800 ,300, 700);
+// $primary: mat-palette($mat-blue-grey, 500 ,300, 700);
+
+// $accent:  mat-palette($custom-accent, 500, 300, 900); // Tweak first number to change buttons. It must be normal, lighter, darker
+$accent:  mat-palette($mat-blue-grey, 500, 300, 900);
+$warn:    mat-palette($mat-red, 600);
+
+$custom-theme: mat-light-theme($primary, $accent, $warn);
+
+.primary-header {
+  background: mat-color($primary, 700);
+
+  h1 {
+    color: mat-color($primary, default-contrast);
+  }
+}
+
+@include angular-material-theme($custom-theme);
+
+/* Don't forget to include each pages custom theme mixin here */
+@include login-page-theme($custom-theme);
+@include profile-page-theme($custom-theme);
